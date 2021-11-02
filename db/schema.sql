@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS lacroix_db;
+CREATE DATABASE lacroix_db;
