@@ -1,0 +1,35 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: sans-serif;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    background:salmon;
+    border-bottom:1px solid black;
+}
+
+.pageHeader {
+    text-align: center;
+}
+
+.cardContainer{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap:wrap;
+}
+
+.card {
+    width: 20%;
+    border:1px solid blue;
+    text-align: center;
+}
+
+.card > img {
+    display: block;
+    margin:0 auto;
+    
+}
