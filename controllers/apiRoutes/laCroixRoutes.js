@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {LaCroix} = require('../../models');
+const {LaCroix,User} = require('../../models');
 
 router.get("/",(req,res)=>{
     LaCroix.findAll().then(laCroixData=>{
@@ -33,6 +33,37 @@ router.post("/",(req,res)=>{
     }).catch(err=>{
         console.log(err);
         res.status(500).json({err})
+    })
+})
+
+router.post("/favorite/:id",(req,res)=>{
+    if(!req.session.user){
+        return res.status(403).json({err:"not logged in!"})
+    }
+    User.findByPk(req.session.user.id).then(loggedInUser=>{
+        loggedInUser.addFavorite(req.params.id).then(result=>{
+           res.json(result)
+        }).catch(err=>{
+            console.log(err);
+            res.status(500).json({err})
+        })
+    })
+})
+router.delete("/favorite/:id",(req,res)=>{
+    if(!req.session.user){
+        return res.status(403).json({err:"not logged in!"})
+    }
+    User.findByPk(req.session.user.id).then(loggedInUser=>{
+        loggedInUser.removeFavorite(req.params.id).then(result=>{
+            if(result){
+                return res.json(result);
+            } else {
+                return res.status(404).json({msg:"not favorited"})
+            }
+        }).catch(err=>{
+            console.log(err);
+            res.status(500).json({err})
+        })
     })
 })
 

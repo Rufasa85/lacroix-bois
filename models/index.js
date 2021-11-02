@@ -12,6 +12,14 @@ LaCroix.hasMany(Review, {
 });
 Review.belongsTo(LaCroix);
 
+User.belongsToMany(LaCroix,{
+    as:"favorite",
+    through:"UserLacroix"
+})
+LaCroix.belongsToMany(User,{
+    through:"UserLacroix"
+})
+
 module.exports ={
     User,
     LaCroix,

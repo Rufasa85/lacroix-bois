@@ -6,10 +6,11 @@ const reviewData = require("./review.json")
 
 const seedMe = async ()=>{
     await sequelize.sync({force:true});
-    await LaCroix.bulkCreate(lacroixData);
+    const flavors = await LaCroix.bulkCreate(lacroixData);
     console.log('seeded flavors!')
-    await User.bulkCreate(userData,{individualHooks:true});
+    const users = await User.bulkCreate(userData,{individualHooks:true});
     console.log('seeded users!')
+   
     await Review.bulkCreate(reviewData);
     console.log('seeded reviews!')
     process.exit(0);
