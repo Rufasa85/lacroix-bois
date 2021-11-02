@@ -1,0 +1,12 @@
+<h1 class="pageHeader">{{username}}</h1>
+<h2 class="pageHeader">Reviews!</h2>
+<div class="cardContainer">
+{{#each Reviews}}
+    <div class="card">
+        <h3>{{LaCroix.flavor}}</h3>
+        <img src="{{LaCroix.image}}" alt="{{LaCroix.flavor}}">
+        <h3>Score: {{score}}</h3>
+        <p>{{review}}</p>
+    </div>
+{{/each}}
+</div>

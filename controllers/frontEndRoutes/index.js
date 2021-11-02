@@ -18,5 +18,30 @@ router.get("/flavors",(req,res)=>{
     })
 })
 
+router.get("/flavors/:id",(req,res)=>{
+    LaCroix.findByPk(req.params.id,{
+        include:[{
+            model:Review,
+            include:[User]
+        }]
+    }).then(laCroixData=>{
+        const hbsData = laCroixData.get({plain:true})
+        console.log(hbsData);
+        res.render("flavors/single",hbsData);
+    })
+})
+router.get("/profile/:id",(req,res)=>{
+    User.findByPk(req.params.id,{
+        include:[{
+            model:Review,
+            include:[LaCroix]
+        }]
+    }).then(userData=>{
+        const hbsData = userData.get({plain:true})
+        console.log(hbsData);
+        res.render("profile",hbsData);
+    })
+})
+
 
 module.exports = router;

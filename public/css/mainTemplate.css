@@ -18,8 +18,9 @@ nav{
 
 .cardContainer{
     display: flex;
-    justify-content: space-around;
     flex-wrap:wrap;
+    width:80vw;
+    margin:0 auto;
 }
 
 .card {
@@ -32,4 +33,10 @@ nav{
     display: block;
     margin:0 auto;
     
+}
+
+.bigImg {
+    display: block;
+    margin:0 auto;
+    width:15vw;
 }
