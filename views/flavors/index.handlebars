@@ -1,10 +1,12 @@
 <h1 class="pageHeader">all flavors page!</h1>
 <div class="cardContainer">
-{{#each flavors}}
-    <div class="card">
+    {{#each flavors}}
+    <a class="card" href="/flavors/{{id}}">
+
         <h3>{{flavor}}</h3>
         <img src="{{image}}" alt="{{flavor}}">
-    </div>
-{{/each}}
+
+    </a>
+    {{/each}}
 
 </div>

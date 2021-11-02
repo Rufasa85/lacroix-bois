@@ -4,7 +4,7 @@
 <div class="cardContainer">
 {{#each Reviews}}
     <div class="card">
-        <h3>{{User.username}}</h3>
+        <a href="/profile/{{User.id}}">{{User.username}}</a >
         <h3>Score: {{score}}</h3>
         <p>{{review}}</p>
     </div>

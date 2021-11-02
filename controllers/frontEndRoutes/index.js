@@ -44,4 +44,22 @@ router.get("/profile/:id",(req,res)=>{
 })
 
 
+router.get("/login",(req,res)=>{
+    if(req.session.user){
+        return res.redirect(`/profile/${req.session.user.id}`)
+    }
+   return  res.render("login")
+})
+
+
+router.get("/reviews/add/:id",(req,res)=>{
+    if(!req.session.user){
+        return res.redirect(`/login`)
+    }
+    LaCroix.findByPk(req.params.id).then(singleFlav=>{
+        const hbsData = singleFlav.get({plain:true})
+        console.log(hbsData);
+        res.render("reviews/add",hbsData)
+    })
+})
 module.exports = router;

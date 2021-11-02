@@ -1,0 +1,18 @@
+<h1 class="pageHeader">add review for {{flavor}}</h1>
+<img  class="bigImg" src="{{image}}" alt="{{flavor}}">
+<form id="add-review">
+    <input type="hidden" id="flavor-id" value={{id}}>
+    <label for="score">score:</label>
+    <select id="score">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <label for="review">review</label>
+    <textarea id="review" cols="30" rows="10"></textarea>
+    <button>add your review!</button>
+</form>
+<script src="/js/addReview.js"></script>
+

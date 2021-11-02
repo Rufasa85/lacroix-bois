@@ -29,6 +29,16 @@ nav{
     text-align: center;
 }
 
+a.card {
+    text-decoration: none;
+    color:black;
+}
+
+a.card:hover {
+    opacity: 0.5;
+    background: gray
+}
+
 .card > img {
     display: block;
     margin:0 auto;

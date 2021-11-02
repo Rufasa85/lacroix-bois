@@ -43,15 +43,17 @@ router.post("/", (req, res) => {
   })
     .then(newUser => {
       req.session.user = {
-        id: foundUser.id,
-        email: foundUser.email,
-        username: foundUser.username
+        id: newUser.id,
+        email: newUser.email,
+        username: newUser.username
       };
       res.json(newUser);
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({ err });
+      req.session.destroy(()=>{
+        res.status(500).json({ err });
+      })
     });
 });
 router.post("/login", (req, res) => {
@@ -77,7 +79,11 @@ router.post("/login", (req, res) => {
           email: foundUser.email,
           username: foundUser.username
         };
-        return res.json(foundUser);
+        return res.json({
+          id:foundUser.id,
+          username:foundUser.username,
+          email:foundUser.email
+        });
       } else {
         return req.session.destroy(() => {
           return res.status(401).json({ err: "invalid email/password" });
