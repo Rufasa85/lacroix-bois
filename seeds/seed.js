@@ -8,7 +8,7 @@ const seedMe = async ()=>{
     await sequelize.sync({force:true});
     await LaCroix.bulkCreate(lacroixData);
     console.log('seeded flavors!')
-    await User.bulkCreate(userData);
+    await User.bulkCreate(userData,{individualHooks:true});
     console.log('seeded users!')
     await Review.bulkCreate(reviewData);
     console.log('seeded reviews!')
