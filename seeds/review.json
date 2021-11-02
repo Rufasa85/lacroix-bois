@@ -1,0 +1,20 @@
+[
+    {
+        "score":5,
+        "review":"beach plum is the best new flavor in years!",
+        "UserId":1,
+        "LaCroixId":1
+    },
+    {
+        "score":4,
+        "review":"watermelon is pretty good, but tastes more like watermelon jolly ranchers than actual watermelons",
+        "UserId":1,
+        "LaCroixId":5
+    },
+    {
+        "score":2,
+        "review":"Only 2 stars cuz daddy loves it, this doesnt taste like catfood or my paws, why would i drink it?",
+        "UserId":2,
+        "LaCroixId":1
+    }
+]

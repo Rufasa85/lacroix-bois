@@ -1,7 +1,8 @@
 const sequelize = require("../config/connection")
-const {LaCroix,User} = require("../models")
+const {LaCroix,User,Review} = require("../models")
 const lacroixData = require("./laCroix.json")
 const userData = require("./user.json")
+const reviewData = require("./review.json")
 
 const seedMe = async ()=>{
     await sequelize.sync({force:true});
@@ -9,6 +10,8 @@ const seedMe = async ()=>{
     console.log('seeded flavors!')
     await User.bulkCreate(userData);
     console.log('seeded users!')
+    await Review.bulkCreate(reviewData);
+    console.log('seeded reviews!')
     process.exit(0);
 }
 
